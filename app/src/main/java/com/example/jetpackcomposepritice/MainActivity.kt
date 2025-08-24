@@ -47,80 +47,77 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposePriticeTheme {
-                Scaffold(modifier = Modifier) { paddingValues ->
-                    Box(modifier = Modifier.padding(paddingValues)) {
-                        LoginScreen()
-                    }
-                }
+
+
             }
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    LoginScreen()
-}
-
-
-@Composable
-fun LoginScreen() {
-    // Remember state for text fields
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-
-    // Layout
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Login",
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 32.dp)
-        )
-
-        // Email Field
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp)
-        )
-
-        // Password Field
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("Password") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 24.dp),
-            visualTransformation = PasswordVisualTransformation()
-        )
-
-        // Login Button
-        Button(
-            onClick = {
-                // Example validation logic
-                if (email.isNotEmpty() && password.isNotEmpty()) {
-                    Log.d("LoginScreen", "Logging in with $email / $password")
-                    // You can show a Toast or navigate here
-                } else {
-                    Log.d("LoginScreen", "Fields cannot be empty")
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-        ) {
-            Text("Login")
-        }
-    }
-}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun LoginScreenPreview() {
+//    LoginScreen()
+//}
+//
+//
+//@Composable
+//fun LoginScreen() {
+//    // Remember state for text fields
+//    var email by remember { mutableStateOf("") }
+//    var password by remember { mutableStateOf("") }
+//
+//    // Layout
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .padding(24.dp),
+//        verticalArrangement = Arrangement.Center
+//    ) {
+//        Text(
+//            text = "Login",
+//            fontSize = 28.sp,
+//            fontWeight = FontWeight.Bold,
+//            modifier = Modifier.padding(bottom = 32.dp)
+//        )
+//
+//        // Email Field
+//        OutlinedTextField(
+//            value = email,
+//            onValueChange = { email = it },
+//            label = { Text("Email") },
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(bottom = 16.dp)
+//        )
+//
+//        // Password Field
+//        OutlinedTextField(
+//            value = password,
+//            onValueChange = { password = it },
+//            label = { Text("Password") },
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(bottom = 24.dp),
+//            visualTransformation = PasswordVisualTransformation()
+//        )
+//
+//        // Login Button
+//        Button(
+//            onClick = {
+//                // Example validation logic
+//                if (email.isNotEmpty() && password.isNotEmpty()) {
+//                    Log.d("LoginScreen", "Logging in with $email / $password")
+//                    // You can show a Toast or navigate here
+//                } else {
+//                    Log.d("LoginScreen", "Fields cannot be empty")
+//                }
+//            },
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .height(50.dp)
+//        ) {
+//            Text("Login")
+//        }
+//    }
+//}
