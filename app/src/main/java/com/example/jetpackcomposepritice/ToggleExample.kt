@@ -1,9 +1,9 @@
 package com.example.jetpackcomposepritice
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,30 +15,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
+@Preview
+fun ToggleExample(modifier: Modifier = Modifier) {
 
-fun Greet(name: String, age: Int) {
+    var isChecked by rememberSaveable { mutableStateOf(false) }
 
-    Text("Hello $name You are $age year old")
-}
-
-@Composable
-@Preview(showSystemUi = true)
-fun ColumnLayoutExample(modifier: Modifier = Modifier) {
-
-    var count by rememberSaveable { mutableStateOf(0) }
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = "$count")
+        Checkbox(
+            checked = isChecked,
+            onCheckedChange = { isChecked = it }
+        )
 
-        Button(onClick = {
-            count++
-        })
-        {
-            Text("Increment")
-        }
+        Text(if (isChecked) "Checked" else "UnChecked")
     }
 }

@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposePriticeTheme {
 
-
+                ToggleExample()
             }
         }
     }
